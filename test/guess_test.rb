@@ -42,5 +42,7 @@ class GuessTest < MiniTest::Test
 
     assert_equal "Incorrect!", guess.feedback
   end
+
+  
 end
 #
