@@ -17,26 +17,30 @@ class GuessTest < MiniTest::Test
     guess = Guess.new("10 of Hearts", card)
 
     assert_equal "10 of Hearts", guess.response
-  end 
+  end
 
-  # guess.card
-  # => #<Card:0x007ffdf1820a90 @value="10", @suit="Hearts">
-  # guess.response
-  # => "10 of Hearts"
-  # guess.correct?
-  # => true
-  # guess.feedback
-  # => "Correct!"
+  def test_it_determines_veracity_of_guess
+    card = Card.new("10", "Hearts")
+    guess = Guess.new("10 of Hearts", card)
 
-# card = Card.new("Queen", "Clubs")
-# guess = Guess.new("2 of Diamonds", card)
-# guess.card
-# => #<Card:0x007ffdf1820a90 @value = "Queen", @suit="Clubs">
-# guess.response
-# => "2 of Diamonds"
-# guess.correct?
-# => false
-# guess.feedback
-# => "Incorrect."
+    assert_equal true, guess.correct?
+
+    card = Card.new("Queen", "Clubs")
+    guess = Guess.new("2 of Diamonds", card)
+
+    assert_equal false, guess.correct?
+  end
+
+  def test_it_gives_feedback
+    card = Card.new("10", "Hearts")
+    guess = Guess.new("10 of Hearts", card)
+
+    assert_equal "Correct!", guess.feedback
+
+    card = Card.new("Queen", "Clubs")
+    guess = Guess.new("2 of Diamonds", card)
+
+    assert_equal "Incorrect!", guess.feedback
+  end
 end
 #
