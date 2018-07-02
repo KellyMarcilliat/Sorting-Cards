@@ -10,10 +10,4 @@ class CardTest < MiniTest::Test
 
     assert_instance_of Card, card
   end
-
-
-
-  
-
 end
-#
