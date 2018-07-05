@@ -36,4 +36,30 @@ class Deck
       sort_deck#(sorted_deck.numeric)
     end
   end
+
+  def merge_sort_deck(card_array)
+    if card_array.length <= 1
+      card_array
+    else
+      mid = (card_array.length / 2).floor
+      left = merge_sort_deck(card_array[0..mid - 1])
+      right = merge_sort_deck(card_array[mid..card_array.length])
+      merge_arrays(left, right)
+    end
+  end
+
+  def merge_arrays(left, right)
+    if left.empty?
+      right
+    elsif right.empty?
+      left
+    elsif left.first.numeric < right.first.numeric
+      [left.first] + merge_arrays(left[1..left.length], right)
+    else
+      [right.first] + merge_arrays(left, right[1..right.length])
+    end
+  end
+
+
+
 end
