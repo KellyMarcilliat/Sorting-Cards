@@ -17,7 +17,6 @@ class RoundTest < MiniTest::Test
   end
 
   def test_it_holds_a_deck
-    # skip
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -27,7 +26,6 @@ class RoundTest < MiniTest::Test
   end
 
   def test_it_has_empty_array_for_guesses
-    # skip
     card_1 = Card.new("3","Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -67,7 +65,6 @@ class RoundTest < MiniTest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    # round.current_card
     round.record_guess({value: "3", suit: "Hearts"})
 
     assert_equal 1, round.guesses.count
@@ -113,7 +110,6 @@ class RoundTest < MiniTest::Test
   end
 
   def test_it_calculates_percent_correct
-
     card_1 = Card.new("3", "Hearts")
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
@@ -124,8 +120,6 @@ class RoundTest < MiniTest::Test
     round.add_to_number_correct
     round.number_correct
 
-    # assert_equal 100, round.percent_correct
-
     round.current_card
     round.record_guess({value: "Jack", suit: "Diamonds"})
     round.guesses.last.correct?
@@ -134,10 +128,4 @@ class RoundTest < MiniTest::Test
 
     assert_equal 50, round.percent_correct
   end
-
-
-# round.percent_correct
-# => 50
-
-
 end

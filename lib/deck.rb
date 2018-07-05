@@ -12,7 +12,6 @@ class Deck
 
   def sort_deck
     sorted_deck = @cards
-    # binding.pry
 
     swapped = false
 
@@ -33,7 +32,7 @@ class Deck
     if swapped == false
       return sorted_deck
     else
-      sort_deck#(sorted_deck.numeric)
+      sort_deck
     end
   end
 
@@ -59,7 +58,4 @@ class Deck
       [right.first] + merge_arrays(left, right[1..right.length])
     end
   end
-
-
-
 end

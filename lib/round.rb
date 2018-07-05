@@ -1,5 +1,3 @@
-require './lib/guess'
-
 class Round
 
   attr_reader   :deck,
@@ -33,8 +31,6 @@ class Round
   end
 
   def percent_correct
-    # binding.pry
     @number_correct.to_f / @guesses.count.to_f * 100
   end
-
 end
