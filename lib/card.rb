@@ -7,7 +7,7 @@ class Card
   def initialize(value, suit)
     @value = value
     @suit = suit
-    @numeric = 0
+    @numeric = set_numeric
   end
 
   def set_numeric
@@ -41,18 +41,3 @@ class Card
     end
   end
 end
-card_1 = Card.new("3", "Diamonds")
-# card_1.set_tens_in_numeric
-p card_1.set_numeric
-card_2 = Card.new("Jack", "Hearts")
-# card_2.set_tens_in_numeric
-p card_2.set_numeric
-card_3 = Card.new("Ace", "Spades")
-# card_3.set_tens_in_numeric
-p card_3.set_numeric
-card_4 = Card.new("King", "Clubs")
-# card_4.set_tens_in_numeric
-p card_4.set_numeric
-card_5 = Card.new("Queen", "Diamonds")
-# card_5.set_tens_in_numeric
-p card_5.set_numeric
