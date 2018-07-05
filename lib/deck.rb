@@ -12,6 +12,7 @@ class Deck
 
   def sort_deck
     sorted_deck = @cards
+    # binding.pry
 
     swapped = false
 
@@ -21,7 +22,7 @@ class Deck
 
       if sorted_deck[i].numeric > sorted_deck[i+1].numeric
 
-        a,b = sorted_deck[i].numeric,sorted_deck[i+1].numeric
+        a,b = sorted_deck[i],sorted_deck[i+1]
 
         sorted_deck.delete_at(i)
         sorted_deck.insert(i+1, a)
@@ -34,6 +35,5 @@ class Deck
     else
       sort_deck#(sorted_deck.numeric)
     end
-    require 'pry'; binding.pry
   end
 end
